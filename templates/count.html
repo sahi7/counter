@@ -1,0 +1,58 @@
+{% extends 'index.html'%}
+{% block body %}
+
+<h2 class="tittle"> {{ the_tittle }} </h2> 
+
+<div class="heading">
+	<p><h1>{{word_len}} word(s)<span class="char">{{lin}} Characters</span></h1> </p>
+</div>
+
+<form role = "form" method="post" action="/s2">
+		<textarea wrap="soft" type="text" id ="summernote" name="words" class="count_control" placeholder="Type or press CTRL+C to paste text here">{{ phr }}</textarea><br><br>
+		<button type="submit">Submit</button><br><br>
+</form>
+
+
+<div style="width: 100%">
+	<div class="results">
+		<h3 style="font-family: agency fb;">Results</h3><hr>
+	</div>
+	<section style="width: 50%; float: left; ">
+	<table>
+    <caption>Details</caption>
+    <thead>
+        <tr><th scope="col"></th><th scope="col"></th></tr>
+    </thead>
+    <tbody class="group1">
+        <tr><th scope="row" align="left">Words</th><td align="right">{{ word_len }}</td>
+        <tr><th scope="row" align="left">Paragraphs</th><td align="right">{{ lines }}</td>
+        <tr><th scope="row" align="left">Characters without space</th><td align="right">{{ char }}</td>
+        <tr><th scope="row" align="left">Characters + whitespace</th><td align="right">{{ lin }}</td>
+        <tr><th scope="row" align="left">Sentences</th><td align="right">{{ sen }}</td>
+    </tbody>
+</table>
+	
+	</section>
+	<section style="width: 50%; float: right;">
+	<table summary="This are the key and value pairs">
+    <caption>Word Frequency</caption>
+    <thead class="aural if not needed">
+        <tr><th scope="col">keys</th><th scope="col">values</th></tr>
+    </thead>
+    <tbody class="group1">
+       {% for k, v in dic.items() %} 
+        <tr>
+            <th scope="row" align="left">{{ k }}</th><td align="right">{{ v }}</td>
+            {% endfor %}
+            <td align="right">{{ freq }}</td>  
+        
+        
+        </tr> 
+    </tbody>
+</table>
+		
+		
+	</section>
+</div>
+
+{% endblock %}
