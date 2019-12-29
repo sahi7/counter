@@ -35,16 +35,11 @@ def index():
         stop_words = set(stopwords.words('english'))
         filter_words = [w for w in Phrases if not w in stop_words]
         ''' Finding word frequency of the above results'''
-        word_freq = nltk.FreqDist(filter_words)
-        freq_counts = sorted(word_freq.items(), key = lambda x: x[1], reverse = True)
 
         counter = Counter(filter_words)
         common = counter.most_common(5)
-        common_t = dict(common)
-        percentage = [(instance, count / word_len) for instance, count in common]
-        l = [("%s %.2f%%"%(k,v*100)) for k, v in common_t[:7]]
+        common_t = dict(common) # converting common list to dictionary
        
-
         count = 0
         for word in phrase:
                 if word.isspace() != True:
@@ -53,12 +48,11 @@ def index():
                 the_tittle = 'The Best Word Counter on the Web',
                 word_len = word_len,
                 lines = len(lines),
-                dic = common_t,
                 char = count,
-                freq = l,
                 sen = len(sen),
                 lin = linning,
                 phr = phrase,
+                common_t = common_t,
 
                 )
 

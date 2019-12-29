@@ -40,11 +40,11 @@
         <tr><th scope="col">keys</th><th scope="col">values</th></tr>
     </thead>
     <tbody class="group1">
-       {% for k, v in dic.items() %} 
+       {% for k in common_t%}  
         <tr>
-            <th scope="row" align="left">{{ k }}</th><td align="right">{{ v }}</td>
+            <th scope="row" align="left">{{ k }}</th><td align="right">{{ common_t[k] }}</td>
             {% endfor %}
-            <td align="right">{{ freq }}</td>  
+            <td align="right">{{ frequency }}</td>  
         
         
         </tr> 
