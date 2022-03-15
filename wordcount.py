@@ -12,7 +12,7 @@ app = Flask(__name__)
 @app.route('/')
 def index1():
         return render_template('count.html',
-                the_tittle = 'The Best Word Counter on the Web',
+                the_tittle = 'Best Online  Word Counter',
                 )
 
 @app.route('/s2', methods = ['get', 'post'])
@@ -23,6 +23,7 @@ def index():
         for char in '-.,\n':
                 replace = phrase.replace(char,'')
         phrase = phrase.lower()
+        print(phrase)
         Phrases = phrase.split()
         word_len = len(Phrases)
         
@@ -30,6 +31,9 @@ def index():
         for l in lines:
                 if not l:
                         lines.remove(l)
+        thisi = 0
+        for phrase in '\n':
+                thisi += 1
 
         # most frequent words k,v pairs
         stop_words = set(stopwords.words('english'))
@@ -49,6 +53,7 @@ def index():
                 word_len = word_len,
                 lines = len(lines),
                 char = count,
+                thisi = thisi,
                 sen = len(sen),
                 lin = linning,
                 phr = phrase,
