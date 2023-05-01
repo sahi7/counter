@@ -1,7 +1,7 @@
 autoenv==1.0.0
 beautifulsoup4==4.4.1
 Click==7.0
-Flask==1.1.1
+Flask==2.3.2
 itsdangerous==1.1.0
 Jinja2==2.10.1
 MarkupSafe==1.1.1
